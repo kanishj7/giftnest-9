@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GiftNest - Thoughtful Gifting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fdf8f5;
+            color: #3d242a;
+        }
+
+        header {
+            background: #4a2531;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #f3c19d;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px;
+            background: #f3c19d;
+        }
+
+        .hero h1 {
+            margin-bottom: 12px;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            background: #4a2531;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .hero button:hover {
+            transform: scale(1.08);
+            background: #6d3849;
+        }
+
+        .gifts {
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        .gift-list {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .gift {
+            background: white;
+            width: 210px;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #0002;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px #0003;
+        }
+
+        .gift-art {
+            width: 100%;
+            height: 190px;
+            border-radius: 8px;
+            background: #fdf8f5;
+            border: 1px dashed rgba(61, 36, 42, 0.16);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .gift-art .emoji {
+            font-size: 50px;
+            line-height: 1;
+        }
+
+        .gift-art .art-label {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #4a2531;
+        }
+
+        .gift h3 {
+            margin: 12px 0;
+        }
+
+        .gift a {
+            display: inline-block;
+            color: #6d3849;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .gift a:hover {
+            color: #c86d51;
+        }
+
+        footer {
+            background: #4a2531;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header a {
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>GiftNest</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Gifts</a>
+            <a href="#">Hampers</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Find Gifts That Bring Joy</h1>
+        <p>Explore curated hampers and enjoy a thoughtful gifting experience.</p>
+        <button>Explore Gifts</button>
+    </section>
+
+    <section class="gifts">
+        <h2>Featured Gifts</h2>
+
+        <div class="gift-list">
+
+            <div class="gift">
+                <div class="gift-art" data-label="Festive Gift Hamper" data-emoji="🪔" data-bg="#fbe6d4"></div>
+                <h3>The Festive Hamper</h3>
+                <p>Curated treats and festive delights.</p>
+                <br>
+                <a href="#">Shop Now →</a>
+            </div>
+
+            <div class="gift">
+                <div class="gift-art" data-label="Aroma Soy Candles" data-emoji="🕯️" data-bg="#fce8ec"></div>
+                <h3>Aroma Candle Set</h3>
+                <p>Hand-poured scents for warm spaces.</p>
+                <br>
+                <a href="#">Shop Now →</a>
+            </div>
+
+            <div class="gift">
+                <div class="gift-art" data-label="Custom Ceramic Mug" data-emoji="☕" data-bg="#efe5dc"></div>
+                <h3>Keepsake Ceramic Mug</h3>
+                <p>Personalised gifts crafted with care.</p>
+                <br>
+                <a href="#">Shop Now →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 GiftNest | Wrap • Share • Celebrate</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.gift-art').forEach((card) => {
+            if (card.dataset.bg) {
+                card.style.background = card.dataset.bg;
+            }
+            card.innerHTML = `<span class="emoji">${card.dataset.emoji || '🎁'}</span><span class="art-label">${card.dataset.label || ''}</span>`;
+        });
+    </script>
+
+</body>
+</html>
